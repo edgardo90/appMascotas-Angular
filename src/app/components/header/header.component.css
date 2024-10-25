@@ -1,0 +1,25 @@
+header{
+    display: flex;
+    color: red;
+    background-color: pink;
+}
+nav{
+    width: 90%;
+    
+}
+ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+    li{
+        color: black;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    li:hover{
+        color: red;
+    }
+
+}
