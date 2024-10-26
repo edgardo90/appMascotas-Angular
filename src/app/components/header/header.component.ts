@@ -18,10 +18,10 @@ export class HeaderComponent {
         case "/home":
           this.seleccionado = [true,false,false];
           break;
-        case "/login":
+        case "/anuncios":
           this.seleccionado = [false,true,false];
           break;
-          case "/anuncios":
+          case "/nosotros":
           this.seleccionado = [false,false,true];
           break;
           default:

@@ -1,10 +1,24 @@
+ 
 <header>
-    <nav class="nav">
-        <ul>
-            <li (click)="navegar('home')">home</li>
-            <li (click)="navegar('anuncios')">Anuncios</li>
-            <li (click)="navegar('login')">Login</li>
-            <li (click)="navegar('registro')">Registro</li>
-        </ul>
-    </nav>
+    <div class="logo">
+        <img src="../../../assets/img/mascotas-logo.png" alt="Logo" class="logo-img">
+        <h1>Nombre página</h1>
+    </div>
+
+    <div >
+      <button type="button" class="boton-iniciar-sesion"(click)="navegar('login')">Iniciar Sesión</button>
+    
+  </div>
+    
 </header>
+
+<nav>
+  <ul>
+    <li (click)="navegar('home')">Inicio</li>
+    <li (click)="navegar('anuncios')">Anuncios</li>
+    <li (click)="navegar('nosotros')">Sobre nosotros</li>
+     
+  </ul>
+ 
+</nav>
+
