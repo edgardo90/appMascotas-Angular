@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { LoginComponent } from "./pages/login/login.component";
 import { HeaderComponent } from "./components/header/header.component";
@@ -9,7 +10,7 @@ import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginComponent, HeaderComponent, HomeComponent,AnunciosComponent,NosotrosComponent],
+  imports: [RouterOutlet,RouterModule, LoginComponent, HeaderComponent, HomeComponent,AnunciosComponent,NosotrosComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

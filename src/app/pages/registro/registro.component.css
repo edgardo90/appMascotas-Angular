@@ -35,16 +35,23 @@ button:hover {
     background: rgb(185, 125, 185,0.7);
     transform: scale(1.1);
 }
+
 label {
+    margin: 10px;
     color: black;
     font-weight: bold;
     font-size: 20px;
-    padding: 5px;
+    padding: 0px;
     border-radius: 10px;
     background: rgba(251, 200, 181, 0.5);
+    display: flex;
+    align-items: center;
+    height: 100%; /* Asegúrate de que el contenedor del label tenga una altura definida */
+    justify-content: center;
+
 }
 input {
-    padding: 5px;
+    padding: 5px 10px;
     margin: 5px;
     border-radius: 10px;
     border: none;
@@ -62,4 +69,16 @@ input {
     width: 500px;
     
     /* grid-column: 7; */
+}
+.texto{
+    padding: 20px;
+}
+p {
+    color : white;
+}
+a {
+    color: violet;
+    font-weight: bold;
+    cursor: pointer;
+
 }
