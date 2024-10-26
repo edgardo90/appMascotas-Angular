@@ -12,11 +12,11 @@
                 </div>
                 <div class="form-group">
                     <label for="">Apellido</label>
-                    <input type="text" placeholder="Gonzales">
+                    <input type="text" placeholder="Perez">
                 </div>
                 <div class="form-group">
                     <label for="">Telefono</label>
-                    <input type="number" placeholder="1166554433">
+                    <input type="text" placeholder="1166554433">
                 </div>
                 <div class="form-group">
                     <label for="">Direccion</label>
@@ -27,33 +27,18 @@
                     <input type="email" placeholder="juan@gmail.com">
                 </div>
                 <div class="form-group">
-                    <label for="">Contraseña</label>
+                    <label for="">Password</label>
                     <input type="password" placeholder="********">
                 </div>
                
                 <button type="submit">Enviar</button>
                 <br>
                 <div class="texto">
-                    <p>Inicia sesion  <a (click)="navegar('login')">aqui</a></p>
+                    <p>¿Ya tenés cuenta? <a (click)="navegar('login')">Iniciar sesion</a></p>
                   </div>
             </form>
         </div>
 
-        <style>
-            .form-group {
-                display: flex;
-                justify-content: space-between;
-                margin-bottom: 10px;
-            }
-
-            .form-group label {
-                flex: 1;
-                margin-right: 10px;
-            }
-
-            .form-group input {
-                flex: 2;
-            }
-        </style>
+       
     </div>
 </div>

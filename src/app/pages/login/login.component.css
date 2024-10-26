@@ -46,10 +46,14 @@ button {
     border-radius: 5px;
     margin-top: 10px;
     cursor: pointer;
+    border:none;
+
 }
 button:hover {
     background: rgb(185, 125, 185,0.7);
     transform: scale(1.1);
+    transition: transform 0.3s ease-in-out
+
 }
 
 input {
@@ -74,6 +78,7 @@ input {
 }
 .texto{
     padding: 20px;
+    font-size: 20px;
 }
 p {
     color : white;
@@ -82,5 +87,9 @@ a {
     color: violet;
     font-weight: bold;
     cursor: pointer;
-
+    text-transform: capitalize;
+}
+a:hover {
+    transition: transform 0.3s ease-in-out;
+    color: rgb(238, 130, 238,0.5);
 }
