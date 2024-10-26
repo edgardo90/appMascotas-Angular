@@ -4,12 +4,12 @@ import { LoginComponent } from "./pages/login/login.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { AnunciosComponent } from './pages/anuncios/anuncios.component';
-import { RegistroComponent } from './pages/registro/registro.component';
+import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginComponent, HeaderComponent, HomeComponent,AnunciosComponent,RegistroComponent],
+  imports: [RouterOutlet, LoginComponent, HeaderComponent, HomeComponent,AnunciosComponent,NosotrosComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
