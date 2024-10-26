@@ -42,7 +42,11 @@
   
   /*
     9. Create a root stacking context
-  */
-  #root, #__next {
-    isolation: isolate;
-  }
+    */
+    #root, #__next {
+      isolation: isolate;
+    }
+    
+    html, body { height: 100%; }
+    body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+    
