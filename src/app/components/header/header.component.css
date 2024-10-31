@@ -1,3 +1,7 @@
+:host {
+    font-family: "DynaPuff", system-ui;
+}
+
 header {
     display: flex; /* Distribuye los elementos en una fila */
     justify-content: space-between; /* Coloca los elementos a los lados */
@@ -8,7 +12,7 @@ header {
 
 nav {
     background-color: #a689d4; /* Color morado para toda la barra */
-    font-family: "DynaPuff", system-ui;
+   
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
