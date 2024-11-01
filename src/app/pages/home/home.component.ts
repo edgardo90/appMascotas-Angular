@@ -17,7 +17,10 @@ export class HomeComponent {
   
   redirectToLogin() {
     this.router.navigate(['/login']);
-    
+  }
+  navegar(direccion: string) {
+    this.router.navigate([direccion]); // se navega a la ruta que se le pase por parametro
+    console.log(direccion);
   }
 
 }

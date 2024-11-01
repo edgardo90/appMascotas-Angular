@@ -41,6 +41,7 @@ nav ul li {
 nav ul li:hover {
     background-color: #d1b3e6;
     transform: scale(0.9);
+    cursor: pointer;
 }
 
 
