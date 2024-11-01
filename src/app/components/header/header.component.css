@@ -82,3 +82,7 @@ nav ul li:hover {
    transform: scale(1.2);
   
 }
+
+img {
+    border-radius: 50px;
+}
