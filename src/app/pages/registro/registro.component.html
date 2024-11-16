@@ -5,30 +5,30 @@
             <h1>Registrarse</h1>
         </div>
         <div class="campos">
-            <form action="">
+            <form [formGroup]="formularioRegistro" (ngSubmit)="EnviarFormulario()">
                 <div class="form-group">
                     <label for="">Nombre</label>
-                    <input autofocus type="text"  placeholder="Juan">
+                    <input autofocus type="text"  placeholder="Juan" id="nombre" formControlName="nombre">
                 </div>
                 <div class="form-group">
                     <label for="">Apellido</label>
-                    <input type="text" placeholder="Perez">
+                    <input type="text" placeholder="Perez" id="apellido" formControlName="apellido">
                 </div>
                 <div class="form-group">
                     <label for="">Telefono</label>
-                    <input type="text" placeholder="1166554433">
+                    <input type="text" placeholder="1166554433" id="telefono" formControlName="telefono">
                 </div>
                 <div class="form-group">
                     <label for="">Direccion</label>
-                    <input type="text" placeholder="Av Corrientes 3220">
+                    <input type="text" placeholder="Av Corrientes 3220" id="direccion" formControlName="direccion">
                 </div>
                 <div class="form-group">
                     <label for="">Email</label>
-                    <input type="email" placeholder="juan@gmail.com">
+                    <input type="email" placeholder="juan@gmail.com" id="email" formControlName="email">
                 </div>
                 <div class="form-group">
                     <label for="">Password</label>
-                    <input type="password" placeholder="********">
+                    <input type="password" placeholder="********" id="password" formControlName="password">
                 </div>
                
                 <button type="submit">Enviar</button>
