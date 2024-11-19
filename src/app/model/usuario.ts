@@ -1,7 +1,7 @@
 export interface Usuario {
   nombre: string;
   apellido: string;
-  telefono: number;
+  telefono: string;
   direccion: string;
   email: string;
   password: string;

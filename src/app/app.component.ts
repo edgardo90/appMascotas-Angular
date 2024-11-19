@@ -15,13 +15,8 @@ import { RegistroComponent } from './pages/registro/registro.component';
   imports: [
     RouterOutlet,
     RouterModule,
-    LoginComponent,
     HeaderComponent,
-    HomeComponent,
-    AnunciosComponent,
-    NosotrosComponent,
-    FooterComponent,
-    RegistroComponent
+    FooterComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

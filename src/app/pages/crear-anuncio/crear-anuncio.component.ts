@@ -51,14 +51,17 @@ export class CrearAnuncioComponent {
       zona: this.publicacion.zona,
       ubicacion: this.publicacion.ubicacion,
       fechaExtravio: this.publicacion.fechaExtravio,
-      estado: this.publicacion.estado,
+      estado: this.publicacion.estado="extraviado",
       descripcion: this.publicacion.descripcion,
       contacto: this.publicacion.contacto
     }
     console.log(nuevoAnuncio)
     // enviar nuevoAnuncio a la base de datos
     alert('Anuncio publicado con éxito');
-    this.navegar('/anuncios');
+    setInterval(() => {
+      this.navegar('/anuncios');
+    }, 2000);
   }
+
   
 }

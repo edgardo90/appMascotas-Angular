@@ -21,7 +21,7 @@ export class RegistroComponent {
   usuario:Usuario = {
     nombre: '',
     apellido: '',
-    telefono: 0,
+    telefono: '',
     direccion: '',
     email: '',
     password: ''
@@ -47,9 +47,11 @@ export class RegistroComponent {
    
     }
     console.log(nuevoUsuario)
-    // enviar nuevoUsuario a la base de datos
     alert('Usuario registrado con éxito');
-    this.navegar('login');
+    setInterval(() => {
+      this.navegar('login');
+    }, 2000);
+    // enviar nuevoUsuario a la base de datos
    
   }
 }
