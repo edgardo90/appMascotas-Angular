@@ -1,47 +1,36 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
-//import { BrowserModule } from '@angular/platform-browser';
-import {CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { ServicioMascotasService } from '../../servicio/servicio-mascotas.service';
-import { error } from 'console';
-import { HttpClientModule } from '@angular/common/http';
-import { HttpClient } from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';  // Importa FormsModule
+import { UsuariosService } from '../../servicio/usuarios.service';
+import { Publicacion } from '../../model/publicacion';
 
 @Component({
   selector: 'app-crear-anuncio',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule,HttpClientModule],
+  imports: [FormsModule],  // Añade FormsModule a los imports
   templateUrl: './crear-anuncio.component.html',
   styleUrl: './crear-anuncio.component.css'
 })
 export class CrearAnuncioComponent {
-  formularioAnuncio:FormGroup;
+
+  publicacion :Publicacion = {
+    nombre: '',
+    tipo: '',
+    raza: '',
+    sexo: '',
+    tamanio: '',
+    foto: '',
+    zona: '',
+    ubicacion: '',
+    fechaExtravio: '',
+    estado: '',
+    descripcion: '', 
+    contacto: ''
+  }
 
   constructor(
     private router: Router,
-    private formBuilder: FormBuilder,
-    private servicioMascotas: ServicioMascotasService,
-    private http: HttpClient) {
-      this.formularioAnuncio = this.formBuilder.group({
-        nombre: [''],
-        tipo: [''],
-        raza:[''],
-        sexo: [''],
-        tamanio: [''],
-        foto: [''],
-        descripcion: [''],
-        fecha: [''],
-        estado: [''],
-        ubicacion: [''],
-        direccion: [''],
-        contacto: [''],
-       
-      });
-    }
+  ) {}
 
   redirectToLogin() {
     this.router.navigate(['/crear-anuncio']);
@@ -49,17 +38,27 @@ export class CrearAnuncioComponent {
 
   navegar(direccion: string) {
     this.router.navigate([direccion]); // se navega a la ruta que se le pase por parametro
-    console.log(direccion);
   }
   
-  enviarAnuncio(){
-    this.servicioMascotas.enviarAnuncio(this.formularioAnuncio.value).subscribe(
-      (respuesta) => {
-        console.log("datos enviado correctamente", respuesta);
-      },
-      error => {
-        console.error("error al enviar datos", error);}
-    )
+  publicarAnuncio(){
+    const nuevoAnuncio : Publicacion = {
+      nombre: this.publicacion.nombre,
+      tipo: this.publicacion.tipo,
+      raza: this.publicacion.raza,
+      sexo: this.publicacion.sexo,
+      tamanio: this.publicacion.tamanio,
+      foto: this.publicacion.foto,
+      zona: this.publicacion.zona,
+      ubicacion: this.publicacion.ubicacion,
+      fechaExtravio: this.publicacion.fechaExtravio,
+      estado: this.publicacion.estado,
+      descripcion: this.publicacion.descripcion,
+      contacto: this.publicacion.contacto
+    }
+    console.log(nuevoAnuncio)
+    // enviar nuevoAnuncio a la base de datos
+    alert('Anuncio publicado con éxito');
+    this.navegar('/anuncios');
   }
   
 }

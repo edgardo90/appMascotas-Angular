@@ -15,6 +15,7 @@ export const routes: Routes = [
     {path: 'anuncios', component: AnunciosComponent},
     {path: 'nosotros' , component: NosotrosComponent},
     {path: 'registro' , component: RegistroComponent},
+    {path: 'usuarios' , component: AnunciosComponent},
     {path: 'crear-anuncio' , component: CrearAnuncioComponent},
     {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];

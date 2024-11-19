@@ -1,56 +1,55 @@
-import {Component} from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { ServicioMascotasService } from '../../servicio/servicio-mascotas.service';
-import { error } from 'console';
-import { HttpClientModule } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';  // Importa FormsModule
+
+//import { FormsModule, ReactiveFormsModule } from '@angular/forms';  // Importa FormsModule y ReactiveFormsModule
+import { UsuariosService } from '../../servicio/usuarios.service';  // Importa UsuariosService
+import { Usuario } from '../../model/usuario';
+
 
 
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [BrowserModule, ReactiveFormsModule,HttpClientModule],
+  imports: [FormsModule],  // Añade FormsModule a los imports
   templateUrl: './registro.component.html',
-  styleUrl: './registro.component.css'
+  styleUrls: ['./registro.component.css']  // Corregido "styleUrl" por "styleUrls"
 })
 export class RegistroComponent {
-  formularioRegistro:FormGroup;
+
+  // usa la interfaz Usuario
+  usuario:Usuario = {
+    nombre: '',
+    apellido: '',
+    telefono: 0,
+    direccion: '',
+    email: '',
+    password: ''
+  };
 
   constructor(
     private router: Router,
-    private formBuilder: FormBuilder,
-    private servicioMascotas: ServicioMascotasService
-  ) {
-    this.formularioRegistro = this.formBuilder.group({
-      nombre: [''],
-      apellidos: [''],
-      telefono:[''],
-      direccion: [''],
-      email: [''],
-      password: ['']
-     
-    });
-  }
+  ) {}
 
-  // funcion para navegar a otra pagina
-  navegar(direccion: string) {
+   navegar(direccion: string) {
     this.router.navigate([direccion]); // se navega a la ruta que se le pase por parametro
-    console.log(direccion);
-  }
+   }
+ 
 
-  // funcion para enviar el formulario al backend
-  EnviarFormulario(){
+  registrar(){
+    const nuevoUsuario : Usuario = {
+      nombre: this.usuario.nombre,
+      apellido: this.usuario.apellido,
+      telefono: this.usuario.telefono,
+      direccion: this.usuario.direccion,
+      email: this.usuario.email,
+      password: this.usuario.password
    
-    this.servicioMascotas.enviarDatos(this.formularioRegistro.value).subscribe(
-      (respuesta) => {
-        console.log("datos enviado correctamente", respuesta);
-      },
-      error => {
-        console.error("error al enviar datos", error);}
-    )
+    }
+    console.log(nuevoUsuario)
+    // enviar nuevoUsuario a la base de datos
+    alert('Usuario registrado con éxito');
+    this.navegar('login');
+   
   }
-  
 }

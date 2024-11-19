@@ -6,14 +6,25 @@ import { HeaderComponent } from "./components/header/header.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { AnunciosComponent } from './pages/anuncios/anuncios.component';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
-import {FooterComponent} from "./components/footer/footer.component";
+import { FooterComponent } from "./components/footer/footer.component";
+import { RegistroComponent } from './pages/registro/registro.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,RouterModule, LoginComponent, HeaderComponent, HomeComponent,AnunciosComponent,NosotrosComponent,FooterComponent],
+  imports: [
+    RouterOutlet,
+    RouterModule,
+    LoginComponent,
+    HeaderComponent,
+    HomeComponent,
+    AnunciosComponent,
+    NosotrosComponent,
+    FooterComponent,
+    RegistroComponent
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'app-mascotas';

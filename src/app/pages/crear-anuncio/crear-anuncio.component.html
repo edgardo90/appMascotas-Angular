@@ -4,74 +4,36 @@
     </div>
     <div class="containerForm">
 
-        <form [formGroup]="formularioAnuncio" (ngSubmit)="enviarAnuncio()">
-            <div class="form-group">
-                <label for="titulo">Nombre de la mascota</label>
-                <input type="text" class="form-control" id="titulo" placeholder="lola" id="nombre" formControlName="nombre" >
-            </div>
-            <div class="form-group">
-                <label for="titulo">Tipo</label>
-                <input type="text" class="form-control" id="raza" placeholder="caniche" id="tipo" formControlName="tipo">
-            </div>
-            <div class="form-group">
-                <label for="titulo">Raza</label>
-                <input type="text" class="form-control" id="raza"  formControlName="raza" placeholder="caniche">
-            </div>
-            <div class="form-group">
-                <label for="sexo">Sexo</label>
-                <select class="form-control" id="sexo" formControlName="sexo">
+        <form (ngSubmit)="publicarAnuncio()">
+            <input type="text" [(ngModel)]="publicacion.nombre" name="nombre" placeholder="Nombre de la mascota">
+            <select [(ngModel)]="publicacion.tipo" name="tipo">
+                <option value="" disabled selected>Selecciona un tipo</option>
+                <option value="perro">Perro</option>
+                <option value="gato">Gato</option>
+            </select>            
+            <input type="text" [(ngModel)]="publicacion.raza" name="raza" placeholder="Raza">
+            <select [(ngModel)]="publicacion.sexo" name="sexo">
+                <option value="" disabled selected>Selecciona el sexo</option>
+                <option value="Hembra">Hembra</option>
+                <option value="Macho">Macho</option>
+              </select>            
+            <select [(ngModel)]="publicacion.tamanio" name="tamanio">
+                <option value="" disabled selected>Selecciona un tamaño</option>
+                <option value="pequeño">Pequeño</option>
+                <option value="mediano">Mediano</option>
+                <option value="grande">Grande</option>
+              </select>            
+              <label for="Foto">Selecciona una foto
 
-                    <option hidden value="hembra">Elegir sexo</option>
-                    <option value="hembra">Hembra</option>
-                    <option value="macho">Macho</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="titulo">tamaño</label>
-                <input type="text" class="form-control" id="tamanio" formControlName="tamanio" placeholder="caballito">
-            </div>
-            
-            <div class="form-group">
-                <label for="imagen">Foto de la mascota</label>
-                <input type="file" class="form-control" id="foto" formControlName="foto" accept="image/*">
-            </div>
-            <div class="form-group">
-                <label for="titulo">Zona</label>
-                <input type="text" class="form-control" id="zona" formControlName="zona" placeholder="caballito">
-            </div>
-            <div class="form-group">
-                <label for="titulo">fecha de extravio</label>
-                <input type="text" class="form-control" id="fecha" formControlName="fecha" placeholder="caballito">
-            </div>
-            <div class="form-group">
-                <label for="titulo">estado</label>
-                <select class="form-control" id="estado" formControlName="estado">
-
-                    <option hidden value="">Estado</option>
-                    <option value="perdido">perdido</option>
-                    <option value="encontrado">encontrado</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="titulo">ubicacion</label>
-                <input type="text" class="form-control" id="ubicacion" formControlName="ubicacion" placeholder="caballito">
-            </div>
-            <div class="form-group">
-                <label for="titulo">direccion</label>
-                <input type="text" class="form-control" id="direccion" formControlName="direccion" placeholder="perdido">
-            </div>
-            <div class="form-group">
-                <label for="titulo">Descripcion</label>
-                <textarea class="form-control" id="descripcion" formControlName="descripcion" placeholder="Descripcion"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="titulo">Contacto</label>
-                <input type="text" class="form-control" id="contacto" formControlName="contacto" placeholder="caballito">
-            </div>
-
-            <button type="submit">Publicar</button>
+                  <input  type="file" [(ngModel)]="publicacion.foto" name="foto" placeholder="Foto">
+              </label>
+            <input type="text" [(ngModel)]="publicacion.zona" name="zona" placeholder="Zona">
+            <input type="text" [(ngModel)]="publicacion.ubicacion" name="ubicacion" placeholder="Ubicación">
+            <input type="date" [(ngModel)]="publicacion.fechaExtravio" name="fechaExtravio" placeholder="Fecha de Extravio">
+            <input type="text" [(ngModel)]="publicacion.estado" name="estado" placeholder="Estado">
+            <textarea [(ngModel)]="publicacion.descripcion" name="descripcion" placeholder="Descripción"></textarea>
+            <input type="text" [(ngModel)]="publicacion.contacto" name="contacto" placeholder="Contacto">
+            <button type="submit">Publicar Anuncio</button>
         </form>
     </div>
 </div>
