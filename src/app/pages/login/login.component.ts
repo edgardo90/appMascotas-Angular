@@ -22,6 +22,7 @@ export class LoginComponent {
   navegar(direccion: string) {
     this.router.navigate([direccion]); // se navega a la ruta que se le pase por parametro
   }
+  
   login(email: string, password: string) {
     console.log(email,password);
     if(email == 'jj@gmail.com' && password == '123456'){

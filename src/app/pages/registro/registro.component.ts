@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';  // Importa FormsModule
-
+//import { DropZoneImgAppComponent } from '../../img-drop/drop-zone-img-app/drop-zone-img-app.component';
 //import { FormsModule, ReactiveFormsModule } from '@angular/forms';  // Importa FormsModule y ReactiveFormsModule
-import { UsuariosService } from '../../servicio/usuarios.service';  // Importa UsuariosService
 import { Usuario } from '../../model/usuario';
-
 
 
 @Component({
@@ -29,6 +27,7 @@ export class RegistroComponent {
 
   constructor(
     private router: Router,
+
   ) {}
 
    navegar(direccion: string) {
@@ -37,6 +36,7 @@ export class RegistroComponent {
  
 
   registrar(){
+
     const nuevoUsuario : Usuario = {
       nombre: this.usuario.nombre,
       apellido: this.usuario.apellido,
@@ -48,10 +48,6 @@ export class RegistroComponent {
     }
     console.log(nuevoUsuario)
     alert('Usuario registrado con éxito');
-    setInterval(() => {
       this.navegar('login');
-    }, 2000);
-    // enviar nuevoUsuario a la base de datos
-   
   }
 }

@@ -3,7 +3,7 @@
         <h1>Datos de la publicacion</h1>
     </div>
     <div class="containerForm">
-
+        
         <form (ngSubmit)="publicarAnuncio()">
             <input type="text" [(ngModel)]="publicacion.nombre" name="nombre" placeholder="Nombre de la mascota">
             <select [(ngModel)]="publicacion.tipo" name="tipo">
@@ -16,17 +16,15 @@
                 <option value="" disabled selected>Selecciona el sexo</option>
                 <option value="Hembra">Hembra</option>
                 <option value="Macho">Macho</option>
-              </select>            
+            </select>            
             <select [(ngModel)]="publicacion.tamanio" name="tamanio">
                 <option value="" disabled selected>Selecciona un tamaño</option>
                 <option value="pequeño">Pequeño</option>
                 <option value="mediano">Mediano</option>
                 <option value="grande">Grande</option>
-              </select>            
-              <label for="Foto">Selecciona una foto
+            </select>            
 
-                  <input  type="file" [(ngModel)]="publicacion.foto" name="foto" placeholder="Foto">
-              </label>
+            <app-drop-zone-img-app #dropZone></app-drop-zone-img-app>
             <input type="text" [(ngModel)]="publicacion.zona" name="zona" placeholder="Zona">
             <input type="text" [(ngModel)]="publicacion.ubicacion" name="ubicacion" placeholder="Ubicación">
             <input type="date" [(ngModel)]="publicacion.fechaExtravio" name="fechaExtravio" placeholder="Fecha de Extravio">

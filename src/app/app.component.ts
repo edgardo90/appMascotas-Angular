@@ -8,6 +8,7 @@ import { AnunciosComponent } from './pages/anuncios/anuncios.component';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { FooterComponent } from "./components/footer/footer.component";
 import { RegistroComponent } from './pages/registro/registro.component';
+import { DropZoneImgAppComponent } from './img-drop/drop-zone-img-app/drop-zone-img-app.component';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,8 @@ import { RegistroComponent } from './pages/registro/registro.component';
     RouterOutlet,
     RouterModule,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DropZoneImgAppComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
