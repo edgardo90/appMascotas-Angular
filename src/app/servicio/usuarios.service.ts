@@ -6,11 +6,22 @@ import { Observable } from 'rxjs';
   providedIn: 'root', // Esto asegura que el servicio esté disponible globalmente
 })
 export class UsuariosService {
-  private apiUrl = 'https://api.ejemplo.com/usuarios'; // Reemplaza con tu API
+  private apiUrl = 'http://localhost:8080/auth/user'; // Reemplaza con tu API
 
   constructor(private http: HttpClient) {}
+
+  verTodo(): Observable<any> {
+    const users = this.http.get(`${this.apiUrl}/all`);
+    console.log(users);
+    return users;
+  }
+
 
   registrarUsuario(usuario: any): Observable<any> {
     return this.http.post(this.apiUrl, usuario);
   }
 }
+
+
+// http://localhost:8080/auth/create // POST
+// http://localhost:8080/auth/user/all // GET

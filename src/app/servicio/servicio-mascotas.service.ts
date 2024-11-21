@@ -10,21 +10,22 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class ServicioMascotasService {
   // url de la api que nos tiene que pasar edgar desde backend
-  private url = 'http://localhost:3000/usuarios';
-  private url2 = 'http://localhost:3000/anuncios';
+  private url = 'http://localhost:8080/publication';
 
 
   constructor(
     private http: HttpClient,
-    private httpclient:HttpClientModule
 
   ) { }
 
-  enviarDatos(datos : any): Observable<any>{
+  verPublicaciones(): Observable<any> {
+    const publicaciones  = this.http.get(`${this.url}/all`);
+    console.log(publicaciones);
+    return publicaciones;
+  }
+  
+  crearPublicacion(datos : any): Observable<any>{
     return this.http.post(this.url, datos);
   }
 
-  enviarAnuncio(datos : any): Observable<any>{
-    return this.http.post(this.url2, datos);
-  }
 }

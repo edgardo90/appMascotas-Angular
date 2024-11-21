@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';  // Importa FormsModule
 import { UsuariosService } from '../../servicio/usuarios.service';
 import { Publicacion } from '../../model/publicacion';
-import { DropZoneImgAppComponent } from '../../img-drop/drop-zone-img-app/drop-zone-img-app.component';
-import { url } from 'inspector';
+import { DropZoneImgAppComponent } from '../../components/img-drop/drop-zone-img-app.component';
 
 @Component({
   selector: 'app-crear-anuncio',
