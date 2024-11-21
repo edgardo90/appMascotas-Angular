@@ -1,41 +1,39 @@
-
 <div class="container">
     <div class="card">
         <div class="title">
             <h1>Registrarse</h1>
         </div>
         <div class="campos">
-            <form action="">
+            <form (ngSubmit)="registrar()">
                 <div class="form-group">
-                    <label for="">Nombre</label>
-                    <input autofocus type="text"  placeholder="Juan">
+                    <label for="nombre">Nombre</label>
+                    <input [(ngModel)]="usuario.nombre" type="text" id="nombre"  name="nombre" placeholder="Juan" required />                </div>
+                <div class="form-group">
+                    <label for="apellido">Apellido</label>
+                    <input  [(ngModel)]="usuario.apellido" type="text" id="apellido"  name="apellido" placeholder="Perez" required />
                 </div>
                 <div class="form-group">
-                    <label for="">Apellido</label>
-                    <input type="text" placeholder="Perez">
+                    <label for="telefono">Telefono</label>
+                    <input  [(ngModel)]="usuario.telefono" type="text" id="telefono" name="telefono" placeholder="1166554433" required />
                 </div>
                 <div class="form-group">
-                    <label for="">Telefono</label>
-                    <input type="text" placeholder="1166554433">
+                    <label for="direccion">Direccion</label>
+                    <input  [(ngModel)]="usuario.direccion" type="text" id="direccion"  name="direccion" placeholder="Av Corrientes 3220" required />
                 </div>
                 <div class="form-group">
-                    <label for="">Direccion</label>
-                    <input type="text" placeholder="Av Corrientes 3220">
+                    <label for="email">Email</label>
+                    <input  [(ngModel)]="usuario.email" type="email" id="email"  name="email" placeholder="juan@gmail.com" required />
                 </div>
                 <div class="form-group">
-                    <label for="">Email</label>
-                    <input type="email" placeholder="juan@gmail.com">
-                </div>
-                <div class="form-group">
-                    <label for="">Password</label>
-                    <input type="password" placeholder="********">
+                    <label for="password">Password</label>
+                    <input  [(ngModel)]="usuario.password" type="password" id="password"  name="password" placeholder="********" required />
                 </div>
                
                 <button type="submit">Enviar</button>
                 <br>
                 <div class="texto">
-                    <p>¿Ya tenés cuenta? <a (click)="navegar('login')">Iniciar sesion</a></p>
-                  </div>
+                    <p>¿Ya tenés cuenta? <a (click)="navegar('/login')">Iniciar sesión</a></p>
+                </div>
             </form>
         </div>
 

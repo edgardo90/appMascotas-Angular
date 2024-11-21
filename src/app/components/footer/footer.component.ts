@@ -13,7 +13,6 @@ export class FooterComponent {
   constructor( private router:Router) { 
     this.router.events.subscribe((e) => {
       if(e instanceof NavigationEnd){
-      console.log(e);
       switch(e.urlAfterRedirects){
         case "/home":
           this.seleccionado = [true,false,false];
@@ -33,7 +32,6 @@ export class FooterComponent {
 
   navegar(direccion :string){
     this.router.navigate([direccion]); // se navega a la ruta que se le pase por parametro
-    console.log(direccion);
   }
   
   seleccionado = [false,false,false]
