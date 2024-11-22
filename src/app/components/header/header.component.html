@@ -5,10 +5,11 @@
         <h1>Patitas al Rescate</h1>
     </div>
 
-    <div >
-      <button type="button" class="boton-iniciar-sesion"(click)="navegar('login')">Iniciar Sesión</button>
-    
-  </div>
+    <div class="auth-button">
+      <button (click)="handleAuthAction()">
+        {{ authService.isLoggedIn() ? 'Cerrar sesión' : 'Iniciar sesión' }}
+      </button>     
+    </div>
     
 </header>
 

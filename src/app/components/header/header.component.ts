@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { AuthLoginService } from '../../servicio/auth-login.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,11 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class HeaderComponent {
 // se injecta el router para poder navegar entre las rutas
-  constructor( private router:Router) { 
+  constructor(
+     private router:Router,
+     public authService: AuthLoginService
+    ) { 
+
     this.router.events.subscribe((e) => {
       if(e instanceof NavigationEnd){
       switch(e.urlAfterRedirects){
@@ -34,4 +39,13 @@ export class HeaderComponent {
   }
 
   seleccionado = [false,false,false]
+
+  handleAuthAction(){
+    if(this.authService.isLoggedIn()){
+      this.authService.logout();
+      this.router.navigate(['/home']);
+    }else{
+      this.router.navigate(['/login']);
+    }
+  }
 }
