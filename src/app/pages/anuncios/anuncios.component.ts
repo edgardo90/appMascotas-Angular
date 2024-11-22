@@ -1,30 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from '../../servicio/usuarios.service';
 import { ServicioMascotasService } from '../../servicio/servicio-mascotas.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-anuncios',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './anuncios.component.html',
-  styleUrl: './anuncios.component.css'
+  styleUrls: ['./anuncios.component.css']
 })
-export class AnunciosComponent {
+export class AnunciosComponent implements OnInit {
+  publicaciones: any[] = []; // Inicializa la lista de publicaciones
 
   constructor(
-    public usuariosService: UsuariosService,
-    public servicioMascotasService: ServicioMascotasService
-  ) { }
+    private usuariosService: UsuariosService,
+    private servicioMascotasService: ServicioMascotasService
+  ) {}
 
   ngOnInit(): void {
-    // this.usuariosService.verTodo().subscribe((data: any) => {
-    //   console.log(data);
-    // });
+    this.servicioMascotasService.verPublicaciones().subscribe({
+      next: (response: any) => {
+        console.log('Publicaciones obtenidas:', response);
+        this.publicaciones = response.data || []; // Extraer el array de publicaciones
 
-
-    this.servicioMascotasService.verPublicaciones().subscribe((data: any) => {
-      console.log(data);
+      },
+      error: (error: any) => {
+        console.error('Error al obtener publicaciones:', error);
+      }
     });
   }
-
 }

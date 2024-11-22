@@ -23,9 +23,13 @@ export class ServicioMascotasService {
     console.log(publicaciones);
     return publicaciones;
   }
-  
+
   crearPublicacion(datos : any): Observable<any>{
-    return this.http.post(this.url, datos);
+    return this.http.post(`${this.url}/create`, datos);
   }
 
 }
+
+// http://localhost:8080/publication/create // POST
+// http://localhost:8080/publication/all // GET
+// http://localhost:8080/publication/update/{id} // PUT

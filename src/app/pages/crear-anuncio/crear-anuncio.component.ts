@@ -1,9 +1,9 @@
 import { Component,ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';  // Importa FormsModule
-import { UsuariosService } from '../../servicio/usuarios.service';
 import { Publicacion } from '../../model/publicacion';
 import { DropZoneImgAppComponent } from '../../components/img-drop/drop-zone-img-app.component';
+import { ServicioMascotasService } from '../../servicio/servicio-mascotas.service';
 
 @Component({
   selector: 'app-crear-anuncio',
@@ -18,22 +18,25 @@ export class CrearAnuncioComponent {
 
 
   publicacion :Publicacion = {
-    nombre: '',
-    tipo: '',
-    raza: '',
-    sexo: '',
-    tamanio: '',
-    foto: '',
-    zona: '',
-    ubicacion: '',
-    fechaExtravio: '',
-    estado: '',
-    descripcion: '', 
-    contacto: ''
-  }
+    name: '',
+    type: '',
+    race: '',
+    sex: '',
+    sizePet: '',
+    image: '',
+    district: '',
+    direction: '',
+    dateLost: '',
+    isLost: true,
+    description: '',
+    userId: 1
+}
+  
 
   constructor(
     private router: Router,
+    private servicioMascotasService: ServicioMascotasService
+    
   ) {}
 
   redirectToLogin() {
@@ -46,22 +49,14 @@ export class CrearAnuncioComponent {
   
   async publicarAnuncio(){
     const urlImagen = await this.dropZoneImgAppComponent.subirImagen();
-    const nuevoAnuncio : Publicacion = {
-      nombre: this.publicacion.nombre,
-      tipo: this.publicacion.tipo,
-      raza: this.publicacion.raza,
-      sexo: this.publicacion.sexo,
-      tamanio: this.publicacion.tamanio,
-      foto: urlImagen,
-      zona: this.publicacion.zona,
-      ubicacion: this.publicacion.ubicacion,
-      fechaExtravio: this.publicacion.fechaExtravio,
-      estado: this.publicacion.estado="extraviado",
-      descripcion: this.publicacion.descripcion,
-      contacto: this.publicacion.contacto
-    }
+    const nuevoAnuncio : Publicacion = { ...this.publicacion, image: urlImagen, userId: 1 };
     
     console.log(nuevoAnuncio)
+
+    this.servicioMascotasService.crearPublicacion(nuevoAnuncio).subscribe((data: any) => {
+      console.log("esto es lo nuevo")
+      console.log(data);
+    });
     //this.dropZoneImgAppComponent.subirImagen();
 
     // enviar nuevoAnuncio a la base de datos

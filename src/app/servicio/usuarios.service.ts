@@ -18,7 +18,7 @@ export class UsuariosService {
 
 
   registrarUsuario(usuario: any): Observable<any> {
-    return this.http.post(this.apiUrl, usuario);
+    return this.http.post(`${this.apiUrl}/create`, usuario);
   }
 }
 

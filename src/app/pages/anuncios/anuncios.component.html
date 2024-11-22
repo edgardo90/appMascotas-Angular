@@ -1,17 +1,14 @@
 <div class="container">
-
-    <h1>Anuncio de mascotas perdidas</h1>
+    <h1>Anuncios de mascotas perdidas</h1>
     <div class="anuncios">
-        <div class="card">
-            <h3>Roco</h3>
-            <h4>constitucion</h4>
-            <h5>dia 25/10/2024</h5>
-            <img src="https://res.cloudinary.com/jjmdt/image/upload/v1732160791/vsrdvpgkfnfr7ls5iics.webp" alt="Manchitas">
-            <p>
-                Se perdio mi perra roco es una pitbul de 2 años, se perdio en la zona de constitucion   tiene un collar blanco y una mancha en forma de estrella en su costado izquierdo
-            </p>
-            <button>contactate</button>
-        </div>
-        
+      <div *ngFor="let publicacion of publicaciones" class="card">
+        <h3>{{ publicacion.name || 'Sin nombre' }}</h3>
+        <h4>{{ publicacion.district || 'Distrito desconocido' }}</h4>
+        <h5>{{ publicacion.dateLost || 'Fecha no especificada' }}</h5>
+        <img [src]="publicacion.image || 'ruta_predeterminada.jpg'" [alt]="publicacion.name || 'Mascota'">
+        <p>{{ publicacion.description || 'Descripción no disponible' }}</p>
+        <button>Contactate</button>
+      </div>
     </div>
-</div>
+  </div>
+  
