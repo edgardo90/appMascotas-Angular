@@ -12,10 +12,11 @@ import { Usuario } from '../../model/usuario';
   styleUrls: ['./anuncios.component.css']
 })
 export class AnunciosComponent implements OnInit {
-  publicaciones: any[] = []; // Lista de publicaciones
-  modalVisible = false; // Controla la visibilidad del modal
-  selectedPublicacion: any; // Almacena la publicación seleccionada
 
+  publicaciones: any[] = []; // Lista de publicaciones
+
+  mostrarModal: boolean = false;
+  publicacionSeleccionada: any = null;
   
 
   constructor(
@@ -37,12 +38,15 @@ export class AnunciosComponent implements OnInit {
   }
 
   // Función para abrir el modal y asignar la publicación seleccionada
-  openModal(): void {
-    this.modalVisible = true; // Mostrar el modal
+  
+  abrirModal(publicacion: any): void {
+    this.publicacionSeleccionada = publicacion;
+    this.mostrarModal = true;
+  }
+  cerrarModal(): void {
+    this.mostrarModal = false;
+    this.publicacionSeleccionada = null;
   }
 
-  // Función para cerrar el modal
-  closeModal(): void {
-    this.modalVisible = false; // Ocultar el modal
-  }
+
 }

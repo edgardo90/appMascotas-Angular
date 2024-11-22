@@ -13,19 +13,19 @@
       <p><strong>Tamaño:</strong> {{ publicacion.sizePet || 'No especificado' }}</p>
 
       <!-- Botón para abrir el modal -->
-      <button (click)="openModal()">Contactate</button>
-
-
+      <div>
+        <button (click)="abrirModal(publicacion)">Contactar</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal" *ngIf="mostrarModal">
+    <div class="modal-content">
+      <span class="close" (click)="cerrarModal()">X</span>
+      <h2>Información de contacto</h2>
+      <p>¡Gracias por interesarte en {{ publicacionSeleccionada?.name || 'la mascota' }}!</p>
+      <p>Distrito: {{ publicacionSeleccionada?.district || 'No especificado' }}</p>
+      <p>Teléfono: <strong>+54 9 123 456 789</strong></p>
+      <p>Email: <strong>contacto</strong></p>
     </div>
   </div>
 </div>
-
-      <!-- Modal (invisible por defecto) -->
-      <div id="contactModal" class="modal" *ngIf="modalVisible">
-        <div class="modal-content">
-          <span class="close-btn" (click)="closeModal()">×</span>
-          <h3>Información de contacto</h3>
-          <p><strong>Email:</strong> {{ selectedPublicacion?.user?.email || 'No disponible' }}</p>
-          <p><strong>Teléfono:</strong> {{ selectedPublicacion?.user?.phone || 'No disponible' }}</p>
-        </div>
-      </div>
