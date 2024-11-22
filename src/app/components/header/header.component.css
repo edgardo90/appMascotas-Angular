@@ -89,15 +89,20 @@ img {
 }
 
 .auth-button button {
-    padding: 10px 15px;
-    font-size: 16px;
-    background-color: #a689d4; /* Green background */
-    color: white;
-    border: none;
-    border-radius: 5px;
+    font-size: 1.3em;
+    color: #ffffff;
+    padding: 15px 20px;
+    margin: 0 10px;
+    border-radius: 10px;
+    background-color: #a689d4;
+    transition: background-color 0.3s ease;
     cursor: pointer;
+    border: none;
   }
   
   .auth-button button:hover {
-    background-color: #a689d4;
+    background-color: #d1b3e6;
+    transform: scale(0.9);
+    transition: background-color 0.3s ease;
+
   }
