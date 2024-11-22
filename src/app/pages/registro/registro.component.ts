@@ -21,6 +21,7 @@ export class RegistroComponent {
     apellido: '',
     telefono: '',
     direccion: '',
+    distrito:'',
     email: '',
     password: ''
   };
@@ -42,6 +43,7 @@ export class RegistroComponent {
       apellido: this.usuario.apellido,
       telefono: this.usuario.telefono,
       direccion: this.usuario.direccion,
+      distrito: this.usuario.distrito,
       email: this.usuario.email,
       password: this.usuario.password
    
