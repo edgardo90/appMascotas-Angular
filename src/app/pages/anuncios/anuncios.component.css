@@ -136,4 +136,100 @@
     font-weight: bold;
   }
 
+  /* Estilo para la cabecera */
+.header {
+    display: flex;
+    justify-content: flex-end; /* Botones alineados a la derecha */
+    align-items: center;
+    background-color: #f5f5f5; /* Fondo claro para la cabecera */
+    padding: 10px 20px; /* Espaciado interno */
+    border-bottom: 1px solid #ddd; /* Línea divisoria inferior */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  }
   
+  /* Estilo para los botones */
+  .btn-publicacion {
+    background-color: #a689d4; /* Verde para los botones */
+    color: white;
+    padding: 10px 20px; /* Espaciado interno */
+    margin-left: 10px; /* Espaciado entre botones */
+    border: none;
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Animación al pasar el cursor */
+  }
+  
+  /* Cambiar color al pasar el cursor */
+  .btn-publicacion:hover {
+    background-color:  #7529ef; /* Verde más oscuro */
+  }
+  
+  /* Ajuste para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column; /* Botones apilados verticalmente */
+      align-items: flex-end; /* Alineación a la derecha */
+    }
+  
+    .btn-publicacion {
+      width: 100%; /* Botones ocupan todo el ancho */
+      text-align: center;
+      margin-left: 0; /* Sin margen lateral */
+      margin-bottom: 10px; /* Separación entre botones */
+    }
+  }
+  
+  .filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Alinea los elementos verticalmente */
+    margin-bottom: 30px; /* Espacio debajo de los filtros */
+}
+
+.filtros label {
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 10px;
+    color: #333;
+}
+
+.filtros select,
+.filtros input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #555;
+}
+
+.filtros input::placeholder {
+    color: #aaa;
+}
+
+.filtros button {
+    padding: 12px 20px;
+    background-color: #a689d4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filtros button:hover {
+    background-color:#7529ef;
+}
+
+.filtros button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
