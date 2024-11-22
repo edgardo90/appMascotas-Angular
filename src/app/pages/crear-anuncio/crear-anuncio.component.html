@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="titulo">
+        <h1>Datos de la publicacion</h1>
+    </div>
+    <div class="containerForm">
+        
+        <form (ngSubmit)="publicarAnuncio()">
+            <input type="text" [(ngModel)]="publicacion.name" name="nombre" placeholder="Nombre de la mascota">
+            <select [(ngModel)]="publicacion.type" name="tipo">
+                <option value="" disabled selected>Selecciona un tipo</option>
+                <option value="perro">Perro</option>
+                <option value="gato">Gato</option>
+            </select>            
+            <input type="text" [(ngModel)]="publicacion.race" name="raza" placeholder="Raza">
+            <select [(ngModel)]="publicacion.sex" name="sexo">
+                <option value="" disabled selected>Selecciona el sexo</option>
+                <option value="Hembra">Hembra</option>
+                <option value="Macho">Macho</option>
+            </select>            
+            <select [(ngModel)]="publicacion.sizePet" name="tamanio">
+                <option value="" disabled selected>Selecciona un tamaño</option>
+                <option value="pequeño">Pequeño</option>
+                <option value="mediano">Mediano</option>
+                <option value="grande">Grande</option>
+            </select>            
+
+            <app-drop-zone-img-app #dropZone></app-drop-zone-img-app>
+            <input type="text" [(ngModel)]="publicacion.district" name="distrito" placeholder="Distrito">
+            <input type="text" [(ngModel)]="publicacion.direction" name="direccion" placeholder="Dirreccion">
+            <input type="date" [(ngModel)]="publicacion.dateLost" name="fechaExtravio" placeholder="Fecha de Extravio">
+            <textarea [(ngModel)]="publicacion.description" name="descripcion" placeholder="Descripción"></textarea>
+            <button type="submit">Publicar Anuncio</button>
+        </form>
+    </div>
+</div>
