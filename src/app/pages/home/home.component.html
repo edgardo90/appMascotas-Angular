@@ -18,8 +18,21 @@
         <br>
         <h3>Publicá un anuncio</h3>
         <p>Ya sea que encontraste una mascota o tu mascota perdida no está en ninguno de los anuncios, podés subir tu propia publicación.</p>
-        <button class="btn-publicacion" (click)="navegar('crear-anuncio')">Crear publicacion</button>
-      </div>
+        <button 
+        class="btn-publicacion" 
+        *ngIf="authService.isLoggedIn()" 
+        (click)="navegar('crear-anuncio')">
+        Crear publicación
+      </button>
+    
+      <!-- Botón para iniciar sesión (si no está logueado) -->
+      <button 
+        class="btn-publicacion" 
+        *ngIf="!authService.isLoggedIn()" 
+        (click)="navegar('login')">
+        Inicia sesión
+      </button>
+    </div>
   
       <div class="card">
         <i class="fa-solid fa-dog fa-2xl" style="color: #010101;"></i>
