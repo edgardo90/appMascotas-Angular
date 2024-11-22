@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';  // Importa FormsModule
 //import { DropZoneImgAppComponent } from '../../img-drop/drop-zone-img-app/drop-zone-img-app.component';
 //import { FormsModule, ReactiveFormsModule } from '@angular/forms';  // Importa FormsModule y ReactiveFormsModule
 import { Usuario } from '../../model/usuario';
+import { UsuariosService } from '../../servicio/usuarios.service';
 
 
 @Component({
@@ -17,17 +18,19 @@ export class RegistroComponent {
 
   // usa la interfaz Usuario
   usuario:Usuario = {
-    nombre: '',
-    apellido: '',
-    telefono: '',
-    direccion: '',
-    distrito:'',
+    name: '',
+    lastName: '',
+    userName: '',
     email: '',
-    password: ''
+    password: '',
+    phone: '',
+    direction: '',
+    district:'',
   };
 
   constructor(
     private router: Router,
+    private usuariosService: UsuariosService
 
   ) {}
 
@@ -39,15 +42,19 @@ export class RegistroComponent {
   registrar(){
 
     const nuevoUsuario : Usuario = {
-      nombre: this.usuario.nombre,
-      apellido: this.usuario.apellido,
-      telefono: this.usuario.telefono,
-      direccion: this.usuario.direccion,
-      distrito: this.usuario.distrito,
+      name: this.usuario.name,
+      lastName: this.usuario.lastName,
+      phone: this.usuario.phone,
+      direction: this.usuario.direction,
+      district: this.usuario.district,
       email: this.usuario.email,
-      password: this.usuario.password
-   
+      password: this.usuario.password,
+      userName: this.usuario.email,
     }
+    this.usuariosService.registrarUsuario(nuevoUsuario).subscribe((data: any) => {
+      console.log("este es el nuevo usuario",data);
+    });
+
     console.log(nuevoUsuario)
     alert('Usuario registrado con éxito');
       this.navegar('login');

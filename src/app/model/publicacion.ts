@@ -10,5 +10,5 @@ export interface Publicacion {
     dateLost: string;
     isLost: boolean;
     description: string;
-    userId: number;
+    userName: string;
 }
