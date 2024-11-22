@@ -3,12 +3,11 @@
 
 /* Estructura principal */
 .container {
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 90vh;
+    height: auto;
     padding: 20px;
     background: #f8f8f8;
 }
@@ -20,6 +19,7 @@
     font-weight: bold;
     text-align: center;
     padding-bottom: 30px;
+    
 }
 
 /* Contenedor de anuncios */
@@ -29,7 +29,7 @@
     justify-content: center;
     gap: 20px;
     align-items: stretch;
-    height: 1500px
+    height: auto
 
 }
 

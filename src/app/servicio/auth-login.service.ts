@@ -1,6 +1,7 @@
 import { Inject, Injectable,PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { isPlatformBrowser } from '@angular/common';
 
 
@@ -20,13 +21,19 @@ export class AuthLoginService {
   ) { }
 
   inicioSesion(email: string, password: string): Observable<any> {
-    const datos = { userName: email, password: password }; // Cambia "userName" si es necesario
-    console.log(datos, "si funciona")
-    return this.http.post(`${this.apiUrl}/login`, datos);
+    const datos = { userName: email, password: password };
+    return this.http.post(`${this.apiUrl}/login`, datos).pipe(
+      catchError((error) => {
+        console.error('Error en inicio de sesión:', error);
+        return throwError(() => new Error('Inicio de sesión fallido.'));
+      })
+    );
   }
+
+
   saveToken(token: string): void {
-    if (this.isBrowser()) {
-      localStorage.setItem('authToken', token); // Save the token in LocalStorage
+    if (this.isBrowser() && token) {
+      localStorage.setItem('authToken', token);
     }
   }
 
@@ -40,15 +47,20 @@ export class AuthLoginService {
   logout(): void {
     if (this.isBrowser()) {
       localStorage.removeItem('authToken');
+      console.log('Sesión cerrada. Token eliminado.');
+      alert('Sesión cerrada.');
     }
   }
-  
+
   isLoggedIn(): boolean {
-    const token = this.getToken();
-    return token !== null && token !== undefined;
-  }
+  const token = this.getToken();
+  if (!token) return false;
+
+  // Aquí podrías verificar la validez del token si es un JWT (opcional)
+  return true;
+}
   
-  private isBrowser(): boolean {
-    return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
-  }
+private isBrowser(): boolean {
+  return isPlatformBrowser(this.platformId); // Usa isPlatformBrowser para validaciones robustas
+}
 }
