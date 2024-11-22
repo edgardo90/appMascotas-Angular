@@ -1,14 +1,31 @@
 <div class="container">
-    <h1>Anuncios de mascotas perdidas</h1>
-    <div class="anuncios">
-      <div *ngFor="let publicacion of publicaciones" class="card">
-        <h3>{{ publicacion.name || 'Sin nombre' }}</h3>
-        <h4>{{ publicacion.district || 'Distrito desconocido' }}</h4>
-        <h5>{{ publicacion.dateLost || 'Fecha no especificada' }}</h5>
-        <img [src]="publicacion.image || 'ruta_predeterminada.jpg'" [alt]="publicacion.name || 'Mascota'">
-        <p>{{ publicacion.description || 'Descripción no disponible' }}</p>
-        <button>Contactate</button>
-      </div>
+  <h1>Anuncios de mascotas perdidas</h1>
+  <div class="anuncios">
+    <div *ngFor="let publicacion of publicaciones" class="card">
+      <h3>{{ publicacion.name || 'Sin nombre' }}</h3>
+      <h4>{{ publicacion.district || 'Distrito desconocido' }}</h4>
+      <h5>{{ publicacion.dateLost || 'Fecha no especificada' }}</h5>
+      <img [src]="publicacion.image || 'ruta_predeterminada.jpg'" [alt]="publicacion.name || 'Mascota'">
+      <p>{{ publicacion.description || 'Descripción no disponible' }}</p>
+      <p><strong>Tipo:</strong> {{ publicacion.type || 'No especificado' }}</p>
+      <p><strong>Raza:</strong> {{ publicacion.race || 'No especificada' }}</p>
+      <p><strong>Sexo:</strong> {{ publicacion.sex || 'No especificado' }}</p>
+      <p><strong>Tamaño:</strong> {{ publicacion.sizePet || 'No especificado' }}</p>
+
+      <!-- Botón para abrir el modal -->
+      <button (click)="openModal()">Contactate</button>
+
+
     </div>
   </div>
-  
+</div>
+
+      <!-- Modal (invisible por defecto) -->
+      <div id="contactModal" class="modal" *ngIf="modalVisible">
+        <div class="modal-content">
+          <span class="close-btn" (click)="closeModal()">×</span>
+          <h3>Información de contacto</h3>
+          <p><strong>Email:</strong> {{ selectedPublicacion?.user?.email || 'No disponible' }}</p>
+          <p><strong>Teléfono:</strong> {{ selectedPublicacion?.user?.phone || 'No disponible' }}</p>
+        </div>
+      </div>
