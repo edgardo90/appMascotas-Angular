@@ -1,7 +1,51 @@
-<div class="container">
-  <h1>Anuncios de mascotas perdidas</h1>
+<div class="header">
+  <!-- Botón para crear una publicación -->
+  <button 
+    class="btn-publicacion" 
+    *ngIf="authService.isLoggedIn()" 
+    (click)="navegar('crear-anuncio')">
+    Crear publicación
+  </button>
+
+  <!-- Botón para iniciar sesión (si no está logueado) -->
+  <button 
+    class="btn-publicacion" 
+    *ngIf="!authService.isLoggedIn()" 
+    (click)="navegar('login')">
+    ¿has iniciado seccion?
+  </button>
+</div>
+
+<div class="filtros">
+  <label for="sizePet">Tamaño:</label>
+  <select id="sizePet" (change)="actualizarFiltro('sizePet', $event)">
+    <option value="">Todos</option>
+    <option value="pequeño">Pequeño</option>
+    <option value="mediano">Mediano</option>
+    <option value="grande">Grande</option>
+  </select>
+
+  <label for="race">Raza:</label>
+  <input 
+    id="race" 
+    type="text" 
+    (input)="actualizarFiltro('race', $event)" 
+    placeholder="Ej. Labrador">
+
+  <label for="district">Distrito:</label>
+  <input 
+    id="district" 
+    type="text" 
+    (input)="actualizarFiltro('district', $event)" 
+    placeholder="Ej. Palermo">
+
+  <button (click)="aplicarFiltros()">Filtrar</button>
+</div>
+
+
+
   <div class="anuncios">
-    <div *ngFor="let publicacion of publicaciones" class="card">
+    <div *ngFor="let publicacion of publicacionesFiltradas" class="card">
       <h3>{{ publicacion.name || 'Sin nombre' }}</h3>
       <h4>{{ publicacion.district || 'Distrito desconocido' }}</h4>
       <h5>{{ publicacion.dateLost || 'Fecha no especificada' }}</h5>
@@ -28,4 +72,3 @@
       <p>Email: <strong>contacto</strong></p>
     </div>
   </div>
-</div>
