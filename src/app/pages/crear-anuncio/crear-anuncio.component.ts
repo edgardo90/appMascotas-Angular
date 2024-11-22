@@ -29,7 +29,7 @@ export class CrearAnuncioComponent {
     dateLost: '',
     isLost: true,
     description: '',
-    userId: 1
+    userName: '',
 }
   
 
@@ -49,7 +49,7 @@ export class CrearAnuncioComponent {
   
   async publicarAnuncio(){
     const urlImagen = await this.dropZoneImgAppComponent.subirImagen();
-    const nuevoAnuncio : Publicacion = { ...this.publicacion, image: urlImagen, userId: 1 };
+    const nuevoAnuncio : Publicacion = { ...this.publicacion, image: urlImagen, userName: "admin@gmail.com" };
     
     console.log(nuevoAnuncio)
 

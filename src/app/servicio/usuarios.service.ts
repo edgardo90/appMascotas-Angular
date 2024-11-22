@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root', // Esto asegura que el servicio esté disponible globalmente
 })
 export class UsuariosService {
-  private apiUrl = 'http://localhost:8080/auth/user'; // Reemplaza con tu API
+  private apiUrl = 'http://localhost:8080/auth'; // Reemplaza con tu API
 
   constructor(private http: HttpClient) {}
 
@@ -21,6 +21,7 @@ export class UsuariosService {
     return this.http.post(`${this.apiUrl}/create`, usuario);
   }
 }
+
 
 
 // http://localhost:8080/auth/create // POST

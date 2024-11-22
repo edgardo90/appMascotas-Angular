@@ -1,9 +1,11 @@
 export interface Usuario {
-  nombre: string;
-  apellido: string;
-  telefono: string;
-  direccion: string;
-  distrito: string;
-  email: string;
+  name: string;
+  lastName: string;
+  userName: string;
+  direction: string;
+  district: string;
   password: string;
+  email: string;
+  phone: string;
+  roles?: string[];
 }
