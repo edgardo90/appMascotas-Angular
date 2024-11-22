@@ -35,9 +35,13 @@ export class LoginComponent {
     this.authService.inicioSesion(this.userName, this.password).subscribe(
       (response) => {
         console.log('Login exitoso:', response);
-        this.authService.saveToken(response.token); // Guarda el token en LocalStorage
-        alert('¡Inicio de sesión exitoso!');
-        this.router.navigate(['/home']); // Redirige a la página principal
+        const token = response?.token;
+        if(token){
+
+          this.authService.saveToken(response.token); // Guarda el token en LocalStorage
+          alert('¡Inicio de sesión exitoso!');
+          this.router.navigate(['/home']); // Redirige a la página principal
+        }
       },
       (error) => {
         console.error('Error al iniciar sesión:', error);
