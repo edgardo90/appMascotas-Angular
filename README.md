@@ -10,16 +10,16 @@ Patitas al Rescate es una plataforma diseñada para conectar a dueños de mascot
 
 ### Funcionalidades
 ##### Registro de usuarios y mascotas:
-Permite a los usuarios crear cuentas y registrar información de sus mascotas.
+* Permite a los usuarios crear cuentas y registrar información de sus mascotas.
 
 ##### Publicación de anuncios:
-Publicar mascotas perdidas o encontradas con detalles como nombre, descripción, última ubicación y foto.
+* Publicar mascotas perdidas o encontradas con detalles como nombre, descripción, última ubicación y foto.
 
 ##### Notificaciones:
-Enviar alertas automáticas a los usuarios interesados sobre nuevas publicaciones relevantes.
+* Enviar alertas automáticas a los usuarios interesados sobre nuevas publicaciones relevantes.
 
 ##### Consulta de anuncios:
-Búsqueda de mascotas perdidas o encontradas por ubicación o tipo de mascota.
+* Búsqueda de mascotas perdidas o encontradas por ubicación o tipo de mascota.
 
 ### Tecnologías Utilizadas
 * Frontend: Angular con TypeScript.
