@@ -1,6 +1,6 @@
 # AppMascotas
 
-# 🐾 Patitas al Rescate
+# 🐾 Patitas al Rescate.
 ### Descripción
 Patitas al Rescate es una plataforma diseñada para conectar a dueños de mascotas perdidas con rescatistas, resolviendo la falta de efectividad en los métodos tradicionales. La aplicación permite registrar mascotas, publicar anuncios, y recibir notificaciones inmediatas cuando se encuentra una coincidencia.
 
